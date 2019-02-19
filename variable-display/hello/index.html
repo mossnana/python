@@ -13,7 +13,14 @@
     <h1>Hello World</h1>
     <h2>Practise Backend Tool</h2>
     <p>{{ name }}</p>
-    <p>{{ age }}</p>
+    <p>{{ age }} years old</p>
+    {% if age < 15 %}
+    <p>Young</p>
+    {% elif age < 30 %}
+    <p>Middle Age</p>
+    {% else %}
+    <p>Old Age</p>
+    {% endif %}
     <p>{{ food }}</p>
 </body>
 </html>
