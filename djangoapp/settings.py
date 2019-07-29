@@ -25,7 +25,7 @@ SECRET_KEY = 'kmfxp5n3m0t=q181$6h4ta%@i_j4d+a54pd^rk$r-kei9kw5cv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'mossnana.pythonanywhere.com']
+ALLOWED_HOSTS = [u'mossnana.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'leads',
 ]
 
 MIDDLEWARE = [
