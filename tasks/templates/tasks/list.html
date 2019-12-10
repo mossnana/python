@@ -1,13 +1,47 @@
-<h1>Hello World</h1>
+<script src="https://kit.fontawesome.com/268522d6ed.js" crossorigin="anonymous"></script>
+<style>
+    a {
+        text-decoration: none;
+        color:darkblue
+    }
+    .delete {
+        color: coral
+    }
+    .task:hover {
+        text-decoration: line-through;
+        cursor: pointer;
+        text-emphasis-style: none;
+        color:darkblue
+    }
+    .finish {
+        text-decoration: line-through;
+        color: red;
+    }
+    .finish:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: red;
+    }
+</style>
+
+<h1>Todos List</h1>
 
 <form method="POST" action="/tasks/">
     {{form}}
     {% csrf_token %}
-    <input type="submit" name="Create Task"/>
+    <input type="submit" name="Create Task" />
 </form>
 
 {% for task in tasks %}
-    <div>
-        <p>{{task}}</p>
-    </div>
+{% if task.complete %}
+<div>
+    <a href="{{task.id}}/edit" class="finish">{{task}}</a>
+    <span><a href="{{task.id}}/delete"><i class="fas fa-trash-alt delete"></i></a></span>
+</div>
+{% else %}
+<div>
+    <a href="{{task.id}}/edit" class="task">{{task}}</a>
+    <span><a href="{{task.id}}/delete"><i class="fas fa-trash-alt delete"></i></a></span>
+</div>
+{% endif %}
 {% endfor %}
